@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  front:
+    build: ./front/
+    container_name: website-front
+    restart: always
+    volumes:
+      - ./front:/app
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_OPTIONS: "--openssl-legacy-provider"
+    command: "npm run dev"
